@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Special Moments 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Playfair Display', serif;
+            padding: 50px 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* Floating Hearts Animation */
+        .heart-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            opacity: 0.7;
+            clip-path: path("M10 30 C-10 10, 10 -10, 30 10 C50 -10, 70 10, 50 30 L30 50 Z");
+            animation: floatHearts 5s linear infinite;
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translateY(0) scale(0.6); opacity: 0.8; }
+            50% { transform: translateY(-50vh) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        .surprise-title {
+            font-size: 28px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .pictures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            width: 100%;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        .flip-container {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            perspective: 1200px;
+            margin: auto;
+        }
+
+        .flip-card {
+            width: 100%;
+            height: 420px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        .flip-card:hover {
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .flip-card img,
+        .flip-card .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 12px;
+        }
+
+        .flip-card .back {
+            background: linear-gradient(135deg, #fff, #ffe0e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            color: #ff4d4d;
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid #ff7eb3;
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .surprise-title { font-size: 24px; }
+            .pictures { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+            .flip-card { height: 380px; }
+            .flip-card .back { font-size: 16px; padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .surprise-title { font-size: 22px; letter-spacing: 2px; }
+            .pictures { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+            .flip-card { height: 350px; }
+            .flip-card .back { font-size: 14px; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart-container">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="surprise-title">💖 Our Special Moments 💖</div>
+
+    <div class="pictures">
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="4.jpg" alt="Picture 1">
+                <div class="back">"Every love story is beautiful, but ours is my favorite."</div>
+            </div>
+        </div>
+
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="5.jpg" alt="Picture 2">
+                <div class="back">"You are my sunshine on the cloudiest days."</div>
+            </div>
+        </div>
+
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="6.jpg" alt="Picture 3">
+                <div class="back">"Together is a wonderful place to be."</div>
+            </div>
+        </div>
+
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="7.jpg" alt="Picture 4">
+                <div class="back">"In your arms, I have found my forever home."</div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="8.jpg" alt="Picture 4">
+                <div class="back">"“Daisy, every time I see you, my day is getting coloured.</div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flip-card" onclick="flipCard(this)">
+                <img src="9.jpg" alt="Picture 4">
+                <div class="back">"So as long as I live I love you, will have and hold you."</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay muted loop>
+        <source src="blue.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        window.onload = function() {
+            var audio = document.getElementById("backgroundMusic");
+
+            // Unmute and play the audio after page loads
+            audio.muted = false;
+            audio.play().catch(error => {
+                console.log("Autoplay blocked. Waiting for user interaction.");
+            });
+
+            // If autoplay is blocked, play on first user click
+            document.body.addEventListener("click", function() {
+                audio.play();
+            }, { once: true }); // Ensures it only plays on the first interaction
+        };
+    </script>
+
+</body>
+</html>
